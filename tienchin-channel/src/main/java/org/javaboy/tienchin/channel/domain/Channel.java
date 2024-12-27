@@ -1,8 +1,10 @@
-package org.javaboy.tienchin.channel.entity;
+package org.javaboy.tienchin.channel.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import org.javaboy.tienchin.common.annotation.Excel;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -20,33 +22,38 @@ public class Channel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "channel_id", type = IdType.AUTO)
+    @Excel(name = "渠道编号")
     private Integer channelId;
 
     /**
      * 渠道名称
      */
+    @Excel(name = "渠道名称")
     private String channelName;
 
     /**
      * 渠道状态
      */
+    @Excel(name = "渠道状态", readConverterExp = "0=正常,1=禁用")
     private Byte status;
 
     /**
      * 备注信息
      */
+    @Excel(name = "渠道备注")
     private String remark;
 
     /**
      * 渠道类型：1 线上渠道 2 线下渠道
      */
+    @Excel(name = "渠道类型", readConverterExp = "1=线上渠道,2=线下渠道")
     private Integer type;
 
     private String createBy;
 
     private String updateBy;
 
-    private LocalDateTime createTiem;
+    private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
 
@@ -108,12 +115,12 @@ public class Channel implements Serializable {
         this.updateBy = updateBy;
     }
 
-    public LocalDateTime getCreateTiem() {
-        return createTiem;
+    public LocalDateTime getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateTiem(LocalDateTime createTiem) {
-        this.createTiem = createTiem;
+    public void setCreateTime(LocalDateTime createTiem) {
+        this.createTime = createTiem;
     }
 
     public LocalDateTime getUpdateTime() {
@@ -142,7 +149,7 @@ public class Channel implements Serializable {
             ", type = " + type +
             ", createBy = " + createBy +
             ", updateBy = " + updateBy +
-            ", createTiem = " + createTiem +
+            ", createTime = " + createTime +
             ", updateTime = " + updateTime +
             ", delFlag = " + delFlag +
         "}";
