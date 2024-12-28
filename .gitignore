@@ -1,14 +1,22 @@
 ######################################################################
 # Build Tools
-
+.DS_Store
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
 target/
 node_modules/
-tienchin-ui/
 !.mvn/wrapper/maven-wrapper.jar
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+**/*.log
+
+tests/**/coverage/
+tests/e2e/reports
+selenium-debug.log
 
 ######################################################################
 # IDE
@@ -38,6 +46,16 @@ dist/
 nbdist/
 .nb-gradle/
 
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.local
+
+package-lock.json
+yarn.lock
+
 ######################################################################
 # Others
 *.log
@@ -47,3 +65,4 @@ nbdist/
 !*/build/*.java
 !*/build/*.html
 !*/build/*.xml
+/tienchin-ui/.idea/
