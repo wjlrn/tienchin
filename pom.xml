@@ -204,6 +204,13 @@
                 <version>${tienchin.version}</version>
             </dependency>
 
+            <!-- 渠道管理-->
+            <dependency>
+                <groupId>org.javaboy</groupId>
+                <artifactId>tienchin-activity</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -215,6 +222,7 @@
         <module>tienchin-generator</module>
         <module>tienchin-common</module>
         <module>tienchin-channel</module>
+        <module>tienchin-activity</module>
     </modules>
     <packaging>pom</packaging>
 
