@@ -1,4 +1,4 @@
-package org.javaboy.tienchin.activity.entity;
+package org.javaboy.tienchin.activity.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -48,12 +48,12 @@ public class Activity implements Serializable {
     /**
      * 折扣券
      */
-    private Object discount;
+    private Double discount;
 
     /**
      * 代金券
      */
-    private Object voucher;
+    private Double voucher;
 
     /**
      * 活动状态 0 表示禁用 1 表示正常
@@ -82,6 +82,16 @@ public class Activity implements Serializable {
     private LocalDateTime updateTime;
 
     private String updateBy;
+
+    private Integer delFlag;
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
 
     public Integer getActivityId() {
         return activityId;
@@ -123,19 +133,19 @@ public class Activity implements Serializable {
         this.type = type;
     }
 
-    public Object getDiscount() {
+    public Double getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Object discount) {
+    public void setDiscount(Double discount) {
         this.discount = discount;
     }
 
-    public Object getVoucher() {
+    public Double getVoucher() {
         return voucher;
     }
 
-    public void setVoucher(Object voucher) {
+    public void setVoucher(Double voucher) {
         this.voucher = voucher;
     }
 

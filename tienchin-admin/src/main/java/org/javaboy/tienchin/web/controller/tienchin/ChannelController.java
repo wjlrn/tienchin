@@ -71,7 +71,7 @@ public class ChannelController extends BaseController {
     /**
      * 根据渠道 ID 查询一个具体的渠道
      */
-    @PreAuthorize("hasPermission('tienchin:channel:list')")
+    @PreAuthorize("hasPermission('tienchin:channel:edit')")
     @GetMapping(value = "/{channelId}")
     public AjaxResult getInfo(@PathVariable Long channelId) {
         return AjaxResult.success(channelService.getById(channelId));
