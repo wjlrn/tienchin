@@ -75,4 +75,26 @@ public class GenerateCode {
                 .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
     }
+
+    @Test
+    void generateCodeClue(){
+        String url = "jdbc:mysql://localhost:3306/tienchin?serverTimezone=Asia/Shanghai";
+        String path = "/Users/warnae/Documents/code/tienchin/tienchin-clue/src/main/";
+        FastAutoGenerator.create(url, "root", "root")
+                .globalConfig(builder -> {
+                    builder.author("javaboy") // 设置作者
+                            .outputDir(path + "java"); // 指定输出目录
+                })
+                .packageConfig(builder ->
+                        builder.parent("org.javaboy.tienchin") // 设置父包名
+                                .moduleName("clue") // 设置父包模块名
+                                .pathInfo(Collections.singletonMap(OutputFile.xml, path + "resources/mapper/")) // 设置mapperXml生成路径
+                )
+                .strategyConfig(builder ->
+                        builder.addInclude("tienchin_clue","tienchin_assignment", "tienchin_follow_record") // 设置需要生成的表名
+                                .addTablePrefix("tienchin_") // 设置过滤表前缀
+                )
+                .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                .execute();
+    }
 }

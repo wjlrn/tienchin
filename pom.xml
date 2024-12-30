@@ -218,6 +218,13 @@
                 <version>${tienchin.version}</version>
             </dependency>
 
+            <!-- 线索管理-->
+            <dependency>
+                <groupId>org.javaboy</groupId>
+                <artifactId>tienchin-clue</artifactId>
+                <version>${tienchin.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -231,6 +238,7 @@
         <module>tienchin-channel</module>
         <module>tienchin-activity</module>
         <module>tienchin-course</module>
+        <module>tienchin-clue</module>
     </modules>
     <packaging>pom</packaging>
 

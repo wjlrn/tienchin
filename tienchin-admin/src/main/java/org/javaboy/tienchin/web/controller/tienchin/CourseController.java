@@ -50,7 +50,7 @@ public class CourseController extends BaseController {
      * 新增课程
      */
     @PreAuthorize("hasPermission('tienchin:course:create')")
-    @Log(title = "渠道管理", businessType = BusinessType.INSERT)
+    @Log(title = "课程管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody Course course) {
         return courseService.addCourse(course);

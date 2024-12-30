@@ -2,6 +2,7 @@ package org.javaboy.tienchin.system.service.impl;
 
 import org.javaboy.tienchin.common.annotation.DataScope;
 import org.javaboy.tienchin.common.constant.UserConstants;
+import org.javaboy.tienchin.common.core.domain.AjaxResult;
 import org.javaboy.tienchin.common.core.domain.entity.SysRole;
 import org.javaboy.tienchin.common.core.domain.entity.SysUser;
 import org.javaboy.tienchin.common.exception.ServiceException;
@@ -489,5 +490,11 @@ public class SysUserServiceImpl implements ISysUserService {
             successMsg.insert(0, "恭喜您，数据已全部导入成功！共 " + successNum + " 条，数据如下：");
         }
         return successMsg.toString();
+    }
+
+    @Override
+    public AjaxResult getUsersByDeptId(Long deptId) {
+        List<SysUser> list = userMapper.getUsersByDeptId(deptId);
+        return AjaxResult.success(list);
     }
 }

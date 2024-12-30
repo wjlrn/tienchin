@@ -90,6 +90,21 @@ export const constantRoutes = [
 //这个动态路由默认情况下，是没有加载的，只有在加载服务端动态菜单的时候，才会去处理这个动态菜单
 export const dynamicRoutes = [
   {
+    path: '/clue/details',
+    component: Layout,
+    hidden: true,
+    permissions: ['tienchin:clue:view', 'tienchin:clue:follow'],
+    children: [
+      {
+        // 数字，
+        path: 'index/:clueId(\\d+)/:type(\\S+)',
+        component: () => import('@/views/tienchin/clue/details'),
+        name: 'ClueDetails',
+        meta: { title: '线索详情', activeMenu: '/clue' }
+      }
+    ]
+  },
+  {
     path: '/system/user-auth',
     component: Layout,
     hidden: true,

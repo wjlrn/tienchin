@@ -1,5 +1,6 @@
 package org.javaboy.tienchin.system.service;
 
+import org.javaboy.tienchin.common.core.domain.AjaxResult;
 import org.javaboy.tienchin.common.core.domain.entity.SysUser;
 
 import java.util.List;
@@ -203,4 +204,6 @@ public interface ISysUserService {
      * @return 结果
      */
     public String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
+
+    AjaxResult getUsersByDeptId(Long deptId);
 }
