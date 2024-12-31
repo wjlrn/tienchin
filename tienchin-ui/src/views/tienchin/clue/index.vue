@@ -410,6 +410,7 @@ function initUsers(){
 }
 function handleAssign(data){
   assignForm.value.assignId = data.clueId;
+  assignFORM.value.type = 0;
   initDeptOption();
   assignClueDialog.value = true;
 }

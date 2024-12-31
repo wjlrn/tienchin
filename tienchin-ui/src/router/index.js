@@ -105,6 +105,21 @@ export const dynamicRoutes = [
     ]
   },
   {
+    path: '/business/details',
+    component: Layout,
+    hidden: true,
+    permissions: ['tienchin:business:view', 'tienchin:business:follow'],
+    children: [
+      {
+        // 数字，
+        path: 'index/:businessId(\\d+)/:type(\\S+)',
+        component: () => import('@/views/tienchin/business/details'),
+        name: 'BusinessDetails',
+        meta: { title: '商机详情', activeMenu: '/business' }
+      }
+    ]
+  },
+  {
     path: '/system/user-auth',
     component: Layout,
     hidden: true,

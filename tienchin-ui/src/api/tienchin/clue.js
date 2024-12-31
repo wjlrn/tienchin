@@ -72,7 +72,7 @@ export function clueFollow(data) {
 // 查询线索跟进记录
 export function getClueRecordByClueId(clueId) {
     return request({
-        url: '/tienchin/clue/follow/record/' + clueId,
+        url: '/tienchin/follow/record/clue/' + clueId,
         method: 'get'
     })
 }
@@ -106,5 +106,13 @@ export function delClue(clueIds) {
     return request({
         url: '/tienchin/clue/' + clueIds,
         method: 'delete'
+    })
+}
+
+// 查询线索跟进记录
+export function clue2Business(clueId) {
+    return request({
+        url: '/tienchin/clue/to_business/' + clueId,
+        method: 'post'
     })
 }

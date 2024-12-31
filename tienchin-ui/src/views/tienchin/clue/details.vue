@@ -45,7 +45,7 @@
                 </el-col>
                 <el-col :span="8">
                   <el-button :disabled="isFiledDisabledEdit" type="danger" @click="showInvalidateClueDialog">无效线索</el-button>
-                  <el-button :disabled="isFiledDisabledEdit" type="primary">转为商机</el-button>
+                  <el-button :disabled="isFiledDisabledEdit" type="primary" @click="handle2Business">转为商机</el-button>
                 </el-col>
               </el-row>
             </div>
@@ -230,7 +230,8 @@
 </template>
 
 <script setup name="Details">
-import {getClueById, clueFollow, getClueRecordByClueId, invalidClue} from '@/api/tienchin/clue'
+import {ElMessageBox} from 'element-plus';
+import {getClueById, clueFollow, getClueRecordByClueId, invalidClue, clue2Business} from '@/api/tienchin/clue'
 const router = useRouter();
 const { proxy } = getCurrentInstance();
 const { sys_user_sex, clue_level, course_type, clue_invalidate } = proxy.useDict("sys_user_sex", "clue_level", "course_type", "clue_invalidate");
@@ -285,6 +286,30 @@ function handleClueFollow(){
   clueFollow(clue.value).then(response=>{
     router.go(-1);
   })
+}
+
+function handle2Business(){
+  ElMessageBox.confirm(
+      '是否将当前线索转为客户？',
+      '提示',
+      {
+        confirmButtonText: '确认',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
+  )
+      .then(() => {
+        clue2Business(clue.value.clueId).then(response =>{
+          router.go(-1);
+        })
+      })
+      .catch(() => {
+        ElMessage({
+          type: 'info',
+          message: '取消操作',
+        })
+      })
+
 }
 
 function goBack(){
