@@ -97,6 +97,12 @@
             <artifactId>tienchin-follow</artifactId>
         </dependency>
 
+        <!-- 合同管理-->
+        <dependency>
+            <groupId>org.javaboy</groupId>
+            <artifactId>tienchin-contract</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

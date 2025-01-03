@@ -12,6 +12,8 @@ tienchin:
   addressEnabled: false
   # 验证码类型 math 数字计算 char 字符验证
   captchaType: math
+  contract:
+    file: /Users/warnae/Documents/contract_file
 
 # 开发环境配置
 server:
