@@ -36,4 +36,6 @@ public interface IClueService extends IService<Clue> {
     AjaxResult deleteClueById(Long[] clueIds);
 
     AjaxResult clue2Business(Integer clueId);
+
+    AjaxResult clueAnalysisData(ClueVO clueVO);
 }

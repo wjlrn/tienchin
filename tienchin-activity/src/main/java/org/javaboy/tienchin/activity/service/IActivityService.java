@@ -28,4 +28,6 @@ public interface IActivityService extends IService<Activity> {
     boolean deleteActivityByIds(Long[] activitylIds);
 
     AjaxResult getActivityByChannelId(Integer channelId);
+
+    AjaxResult activityAnalysisData(ActivityVO activityVO);
 }
